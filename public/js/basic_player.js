@@ -8,12 +8,12 @@ const audioPlayer = document.querySelector("#audioPlayer");
 async function dequeueAndPlayNext() {
   if (playlist.length > 0) {
     const filename = playlist.shift()
-    audioPlayer.src = `/audio/${filename}`;
+    audioPlayer.src = `/public/audio/${filename}`;
     await audioPlayer.play();
   }
 }
 
-audioPlayer.addEventListener('ended', function() {
+audioPlayer.addEventListener('ended', function () {
   console.log("Song ended");
   dequeueAndPlayNext();
 })
@@ -24,6 +24,7 @@ setInterval(() => {
   playlist.push(possiblefiles[Math.floor(Math.random() % (2))])
 }, 4000);
 
-(function () { 
+(function () {
 
-dequeueAndPlayNext().then(() => console.log("Started playback queue"_) });)()
+  dequeueAndPlayNext().then(() => console.log("Started playback queue"))
+})()
